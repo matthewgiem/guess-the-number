@@ -8,9 +8,9 @@ number = randint(0,9)
 def hello_world():
     return 'guess the number'
 
-@app.route("/<guess>")
+@app.route("/<int:guess>")
 def guess_the_number(guess):
-    guess = int(guess)
+    # guess = int(guess)
     if guess < number:
         return f"{guess} is too low, guess higher"
     if guess > number:
@@ -19,4 +19,4 @@ def guess_the_number(guess):
         return f"Correct!! {guess} = {number}"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
